@@ -3,18 +3,18 @@
 {% block content %}
 <center>
 <table style="text-align: center;">
-    {% ifequal user.last_name "Patient" %}
+    {% if user.last_name == "Patient" %}
     <tr style="text-align: center;"><th>Date</th><th>Time</th><th>Consulting Doctor</th><th>Status</th></tr>
-    {% for ap in ap %}
-    <tr><th>{{ap.date}}</th><th>{{ap.time}}</th><th>{{ap.doctor}}</th><th>{{ap.status}}</th></tr>
+    {% for patient_ap in patient_appointments %}
+    <tr><th>{{ patient_ap.date }}</th><th>{{ patient_ap.time }}</th><th>{{ patient_ap.doctor }}</th><th>{{ patient_ap.status }}</th></tr>
     {% endfor %}
-    {% endifequal %}
-    {% ifequal user.last_name "Doctor" %}
+    {% endif %}
+    {% if user.last_name == "Doctor" %}
     <tr><th>Date</th><th>Time</th><th>Patient</th><th>Status</th></tr>
-    {% for ap in ap %}
-    <tr><th>{{ap.date}}</th><th>{{ap.time}}</th><th>{{ap.patient}}</th><th>{{ap.status}}</th></tr>
+    {% for doctor_ap in doctor_appointments %}
+    <tr><th>{{ doctor_ap.date }}</th><th>{{ doctor_ap.time }}</th><th>{{ doctor_ap.patient }}</th><th>{{ doctor_ap.status }}</th></tr>
     {% endfor %}
-    {% endifequal %}
+    {% endif %}
 </table>
 </center>
 {% endblock %}

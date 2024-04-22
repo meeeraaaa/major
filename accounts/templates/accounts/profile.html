@@ -12,20 +12,19 @@
 <tr><th>Phone:</th><th> {{ pro.phone }}</th></tr>
 <tr><th>Gender:</th><th> {{ pro.gender }}</th></tr>
 <tr><th>Age:</th><th> {{ pro.age }}</th></tr>
-{% ifequal pro.user.last_name "Patient" %}
+{% if pro.user.last_name == "Patient" %}
 <tr><th>Address:</th><th>{{pro.address}}</th></tr>
 <tr><th>Blood Group:</th><th>{{pro.bloodgroup}}</th></tr>
 <tr><th>Case Paper:</th><th>{{pro.casepaper}}</th></tr>
-</table>
-<a href="{{ pro.image.url }}"><input type="submit" style='width:300px;margin:10px;font-size:18px;padding:10px;background-color: green;color: white;border: none;border-radius: 25px;font-weight: bold;' value="Medical Report"></a>
-<a href="{% url 'uprofile' %}"><input type="submit" style='width:300px;margin:10px;font-size:18px;padding:10px;background-color: green;color: white;border: none;border-radius: 25px;font-weight: bold;' value="Update Profile"></a>
-{%endifequal%}
-{% ifequal pro.user.last_name "Doctor" %}
+<tr><th><a href="{{ pro.image.url }}"><input type="submit" style='width:300px;margin:10px;font-size:18px;padding:10px;background-color: green;color: white;border: none;border-radius: 25px;font-weight: bold;' value="Medical Report"></a></th></tr>
+<tr><th><a href="{% url 'uprofile' %}"><input type="submit" style='width:300px;margin:10px;font-size:18px;padding:10px;background-color: green;color: white;border: none;border-radius: 25px;font-weight: bold;' value="Update Profile"></a></th></tr>
+{% endif %}
+{% if pro.user.last_name == "Doctor" %}
 <tr><th>Department:</th><th>{{pro.Department}}</th></tr>
 <tr><th>Attendance:</th><th>{{pro.attendance}}</th></tr>
 <tr><th>Salary:</th><th>{{pro.salary}}</th></tr>
+{% endif %}
 </table>
-{%endifequal%}
 </div>
 </center>
 

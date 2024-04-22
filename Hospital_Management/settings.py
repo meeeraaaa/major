@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import logging
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,6 +29,24 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename':'logfile.log', 
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 # Application definition
 
@@ -129,8 +148,8 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 MEDIA_URL='/media/'
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER='alumnijnec@gmail.com'
+EMAIL_HOST_USER='ananyasarkarlks@gmail.com'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
-EMAIL_HOST_PASSWORD='Jnec@1234'
+EMAIL_HOST_PASSWORD='zfuavcuklgtlzzri'
